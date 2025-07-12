@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đăng ký - Bách Hóa Online</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Đăng ký tài khoản</h2>
+    <input type="text" id="fullname" placeholder="Họ và tên" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="tel" id="phone" placeholder="Số điện thoại" />
+    <input type="password" id="password" placeholder="Mật khẩu" />
+    <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" />
+
+    <button id="sendOtpBtn">Gửi mã OTP</button>
+
+    <div id="otpSection" style="display: none;">
+      <input type="text" id="otp" placeholder="Nhập mã OTP" />
+      <button id="verifyOtpBtn">Xác nhận mã OTP & Đăng ký</button>
+    </div>
+
+    <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+  </div>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>

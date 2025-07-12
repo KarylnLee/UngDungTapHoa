@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giỏ hàng - ProD Store</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/cart.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="../index.html"><img src="../assets/logo.png" alt="Bách Hóa Online" /></a>
+      </div>
+      <nav class="header-nav">
+        <a href="./cart.html" class="active"><i class="fas fa-shopping-cart"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="cart-container">
+    <h2>Giỏ hàng của bạn</h2>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Xóa</th>
+        </tr>
+      </thead>
+      <tbody id="cart-body">
+        <!-- Render JS -->
+      </tbody>
+    </table>
+
+    <div class="cart-summary">
+      <p>Tổng thanh toán: <strong id="total-price">0 đ</strong></p>
+      <p class="warning" style="display: none; color: red;">⚠️ Bạn đã chọn hơn 100 sản phẩm!</p>
+      <button class="checkout-btn">Tiến hành thanh toán</button>
+    </div>
+  </main>
+
+  <script src="../js/cart.js"></script>
+</body>
+</html>

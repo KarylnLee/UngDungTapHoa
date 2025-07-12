@@ -1,0 +1,94 @@
+/* FLASH SALE*/
+.flash-sale {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.flash-sale-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.flash-sale-banner img {
+  width: 100%;
+  height: 285px; 
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+#countdown span {
+  background: #444;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.time-slot {
+  padding: 10px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #eee;
+}
+.time-slot.active {
+  background-color: #2ecc71;
+  color: white;
+  font-weight: bold;
+}
+.time-slot.ended {
+  opacity: 0.5;
+  cursor: default;
+}
+.sale-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.sale-product {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 180px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.sale-product:hover {
+  transform: scale(1.03);
+}
+
+.sale-product img {
+  width: 100%;
+  height: 150px;          /* hoặc 160px tùy bạn muốn cao bao nhiêu */
+  object-fit: cover;      /* cắt ảnh để vừa khung mà không méo */
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.logo img {
+  height: 60px;      /* chỉnh chiều cao logo */
+  width: auto;       /* giữ tỉ lệ gốc */
+  object-fit: contain;
+}
+
+.add-to-cart-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.add-to-cart-btn:hover {
+  background-color: #27ae60;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý đơn hàng</title>
+   <link rel="stylesheet" href="/frontend/css/style.css">
+  <link rel="stylesheet" href="/frontend/css/admin.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 10px; }
+    th { background-color: #f2f2f2; }
+    .detail-row { background-color: #f9f9f9; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>📦 Danh sách đơn hàng</h2>
+    <table id="orderTable">
+      <thead><tr><th>ID</th><th>Khách hàng</th><th>Ngày</th><th>Thanh toán</th><th>Trạng thái</th><th>Tổng tiền</th><th>Chi tiết</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="/frontend/js/admin/order-manage.js"></script>
+</body>
+</html>

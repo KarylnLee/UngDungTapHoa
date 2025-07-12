@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProD Store - Trang chủ</title>
+  <link rel="stylesheet" href="../css/promo.css" />
+  <link rel="stylesheet" href="../css/index.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+       <div class="logo">
+  <a href="index.html">
+    <img src="../assets/logo.png" alt="ProD Store Logo">
+  </a>
+  <p class="typing-effect" id="typing-text"></p>
+</div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." />
+        <button id="btnSearch">Tìm kiếm</button>
+      </div>
+      
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="container">
+      <li><a href="../index.html">Trang chủ</a></li>
+    <li><a href="./promo.html" class="active">Khuyến mãi</a></li>
+    </ul>
+  </nav>
+<!-- FLASH SALE SECTION -->
+<section class="flash-sale">
+  <div class="container">
+    <!-- Banner -->
+    <div class="flash-sale-banner">
+      <img src="../assets/promo/flashsale.jpg" alt="FLASH SALE" />
+    </div>
+
+    <!-- Khung giờ sale -->
+    <div id="timeSlots" class="time-slots"></div>
+
+    <!-- Đồng hồ đếm ngược -->
+    <h3 id="timer" class="countdown-timer"></h3>
+
+    <!-- Danh sách sản phẩm sale -->
+    <div id="saleProducts" class="sale-products"></div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      &copy; 2025 ProD Store - By <a href="https://tuyenlt211.github.io/Portfolio-Gr13/" target="_blank">Group 13</a>
+    </div>
+  </footer>
+  <script src="../js/index.js"></script>
+  <script src="../js/promo.js"></script>
+</body>
+</html>

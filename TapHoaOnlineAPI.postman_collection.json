@@ -1,0 +1,1268 @@
+{
+  "info": {
+    "_postman_id": "f7b8a2e1-9c4d-4e7b-8c9a-2b3f5e6d7a8b",
+    "name": "TapHoaOnlineAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for testing TapHoaOnlineAPI"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FullName\": \"Test User\",\n  \"Email\": \"testuser@example.com\",\n  \"PhoneNumber\": \"0123456789\",\n  \"PasswordHash\": \"Password123!\",\n  \"AuthProvider\": \"local\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Email\": \"testuser@example.com\",\n  \"Password\": \"Password123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CurrentPassword\": \"Password123!\",\n  \"NewPassword\": \"NewPassword123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Auth/update-password",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Auth", "update-password"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/User/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserId\": 1,\n  \"FullName\": \"Updated User\",\n  \"PhoneNumber\": \"0987654321\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/User/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "update"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/User/send-otp?userId=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "send-otp"],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/User/verify-otp?userId=1&otp=123456",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "verify-otp"],
+              "query": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                },
+                {
+                  "key": "otp",
+                  "value": "123456"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Addresses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/User/addresses/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "addresses", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Address",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserId\": 1,\n  \"FullAddress\": \"789 Đường Láng, Hà Nội\",\n  \"IsDefault\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/User/address/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "address", "add"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Address",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ShippingAddressId\": 1,\n  \"FullAddress\": \"789 Đường Láng, Hà Nội\",\n  \"IsDefault\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/User/address/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "address", "update"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Address",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/User/address/delete/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "User", "address", "delete", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Get Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Statistics",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "stats"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FullName\": \"Admin Updated User\",\n  \"PhoneNumber\": \"0987654321\",\n  \"IsActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/user/update/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "user", "update", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": " Token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/user/delete/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "user", "delete", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Feedbacks",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Admin/feedbacks",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Admin", "feedbacks"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Add Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"Test Product\",\n  \"CategoryId\": 1,\n  \"Brand\": \"TestBrand\",\n  \"Description\": \"Test product description\",\n  \"Unit\": \"kg\",\n  \"Stock\": 100,\n  \"Price\": 50000,\n  \"ImageURL\": \"http://localhost:5257/images/test.jpg\",\n  \"Ingredients\": \"Test ingredients\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Product/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Product", "add"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"Updated Product\",\n  \"CategoryId\": 1,\n  \"Brand\": \"UpdatedBrand\",\n  \"Description\": \"Updated description\",\n  \"Unit\": \"kg\",\n  \"Stock\": 200,\n  \"Price\": 60000,\n  \"ImageURL\": \"http://localhost:5257/images/updated.jpg\",\n  \"Ingredients\": \"Updated ingredients\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Product/update/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Product", "update", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Product/delete/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Product", "delete", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Product/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Product", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Product/all",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Product", "all"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Get Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add to Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserId\": 1,\n  \"ProductId\": 1,\n  \"Quantity\": 2,\n  \"IsSelected\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "add"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Cart Item",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CartItemId\": 1,\n  \"Quantity\": 3,\n  \"IsSelected\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "update"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove from Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/remove/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "remove", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Cart Total",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Cart/total/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Cart", "total", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AddressId\": 1,\n  \"ShippingMethod\": \"Grab\",\n  \"ShippingFee\": 20000,\n  \"PaymentMethod\": \"momo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Order/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Order", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Orders",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Order/user/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Order", "user", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "Process Payment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PaymentMethod\": \"momo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Payment/process/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Payment", "process", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Coupon",
+      "item": [
+        {
+          "name": "Check Coupon",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Coupon/check/SALE2025",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Coupon", "check", "SALE2025"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Coupon",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Code\": \"NEWCOUPON2025\",\n  \"DiscountValue\": 30000,\n  \"ExpiryDate\": \"2025-12-31\",\n  \"MinOrderAmount\": 150000,\n  \"IsActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Coupon/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Coupon", "add"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Coupon",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Code\": \"SALE2025\",\n  \"DiscountValue\": 60000,\n  \"ExpiryDate\": \"2025-12-31\",\n  \"MinOrderAmount\": 200000,\n  \"IsActive\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Coupon/update/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Coupon", "update", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Coupon",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Coupon/delete/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Coupon", "delete", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Delivery",
+      "item": [
+        {
+          "name": "Track Order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"OrderId\": 1,\n  \"CurrentStatus\": \"Đang giao hàng\",\n  \"Location\": \"123 Đường Láng, Hà Nội\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Delivery/track",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Delivery", "track"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Tracking Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Delivery/status/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Delivery", "status", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Rate Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{jwtToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DeliveryRating\": 4,\n  \"ShipperRating\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Delivery/rate/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Delivery", "rate", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Review",
+      "item": [
+        {
+          "name": "Submit Review",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ProductId\": 1,\n  \"UserId\": 1,\n  \"Rating\": 4,\n  \"Comment\": \"Sản phẩm rất tốt\",\n  \"ImageURL\": \"http://localhost:5257/images/review_test.jpg\",\n  \"CreatedAt\": \"2025-07-10T16:03:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Review/submit",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Review", "submit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Review/product/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Review", "product", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Save Search",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserId\": 1,\n  \"Keyword\": \"Thịt heo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Search/save",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Search", "save"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Search History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Search/user/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Search", "user", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Search Keyword",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Search/delete/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Search", "delete", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clear Search History",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Search/clear/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Search", "clear", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Chat",
+      "item": [
+        {
+          "name": "Send Chat Message",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FromUserId\": 1,\n  \"ToUserId\": 2,\n  \"Message\": \"Hello, how is my order?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Chat/send",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Chat", "send"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Chat History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Chat/history?fromUserId=1&toUserId=2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Chat", "history"],
+              "query": [
+                {
+                  "key": "fromUserId",
+                  "value": "1"
+                },
+                {
+                  "key": "toUserId",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DeliveryChat",
+      "item": [
+        {
+          "name": "Send Delivery Chat",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"OrderId\": 1,\n  \"Sender\": \"user\",\n  \"Message\": \"When will my order arrive?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/DeliveryChat/send",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "DeliveryChat", "send"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Delivery Chat by Order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/DeliveryChat/order/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "DeliveryChat", "order", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "QnA",
+      "item": [
+        {
+          "name": "Ask Question",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ProductId\": 1,\n  \"UserId\": 1,\n  \"Question\": \"Sản phẩm này có nguồn gốc từ đâu?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/QnA/ask",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "QnA", "ask"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get QnA by Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/QnA/product/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "QnA", "product", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "OTP",
+      "item": [
+        {
+          "name": "Add OTP",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserId\": 1,\n  \"Code\": \"123456\",\n  \"Expiry\": \"2025-07-10T17:03:00\",\n  \"Type\": \"email\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/Otp/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Otp", "add"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get OTP by User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/Otp/user/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "Otp", "user", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ReturnRequest",
+      "item": [
+        {
+          "name": "Request Return",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"OrderId\": 1,\n  \"Reason\": \"Sản phẩm không đúng mô tả\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ReturnRequest/request",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ReturnRequest", "request"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Returns",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ReturnRequest/user/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ReturnRequest", "user", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5257"
+    },
+    {
+      "key": "jwtToken",
+      "value": "your_jwt_token_here"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chi tiết đơn hàng - ProD Store</title>
+  <link rel="stylesheet" href="/frontend/css/style.css" />
+  <link rel="stylesheet" href="/frontend/css/order-detail.css" />
+</head>
+<body>
+  <div class="order-history-container">
+    <h2>Chi tiết đơn hàng</h2>
+
+    <div class="order-card">
+      <div class="order-header">
+        <span id="order-id">Mã đơn hàng: </span>
+        <span class="status" id="order-status"></span>
+      </div>
+
+      <div class="order-info">
+        <p><strong>Ngày đặt:</strong> <span id="order-date"></span></p>
+        <p><strong>Phương thức thanh toán:</strong> <span id="order-payment"></span></p>
+        <p><strong>Địa chỉ giao:</strong> <span id="order-address"></span></p>
+      </div>
+
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+          </tr>
+        </thead>
+        <tbody id="order-items">
+          <!-- Sản phẩm sẽ được render bằng JS -->
+        </tbody>
+      </table>
+
+      <div class="order-summary" id="order-summary">
+        <!-- Tổng thanh toán sẽ được render bằng JS -->
+      </div>
+
+      <div class="order-actions">
+        <button class="reorder-btn">Đặt lại đơn này</button>
+        <button class="rate-btn">Đánh giá sản phẩm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/frontend/js/order-detail.js"></script>
+</body>
+</html>

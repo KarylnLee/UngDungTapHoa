@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết sản phẩm - ProD Store</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/product-detail.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="main-header">
+      <div class="container">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../assets/logo.png" alt="ProD Store Logo">
+          </a>
+          <p class="typing-effect" id="typing-text"></p>
+        </div>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." />
+          <button id="btnSearch">Tìm kiếm</button>
+        </div>
+        <div class="header-actions" id="headerActions">
+          <!-- Sẽ được render bởi JS -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <ul class="container">
+        <li><a href="../index.html">Trang chủ</a></li>
+        <li><a href="./promo.html">Khuyến mãi</a></li>
+        <li><a href="./product-category.html">Gợi ý</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Layout -->
+    <main class="product-content">
+      <div class="product-grid">
+        <div class="product-card">
+          <h2 id="productName">Tên sản phẩm</h2>
+          <div class="detail-layout">
+            <img id="productImage" src="" alt="" />
+            <div class="info">
+              <p id="productPrice">Giá: </p>
+              <p id="productDesc">Mô tả sản phẩm</p>
+              <div class="buttons">
+                <button class="btn btn-buy">Mua ngay</button>
+                <button class="btn btn-cart" id="btnAddToCart">🛒 Thêm vào giỏ</button>
+                <a href="../index.html" class="btn secondary">Quay lại</a>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="container">
+        &copy; 2025 ProD Store - By <a href="https://tuyenlt211.github.io/Portfolio-Gr13/" target="_blank">Group 13</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="../js/product-detail.js"></script>
+  <script type="module" src="../js/index.js"></script>
+</body>
+</html>

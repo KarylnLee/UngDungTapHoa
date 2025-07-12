@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProD Store - Trang chủ</title>
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="./assets/logo.png" alt="ProD Store Logo">
+        </a>
+        <p class="typing-effect" id="typing-text"></p>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Tìm sản phẩm..." />
+        <button id="btnSearch">Tìm kiếm</button>
+      </div>
+      <div class="header-actions" id="headerActions">
+          <!-- JS sẽ tự động hiển thị đăng nhập hoặc tên người dùng -->
+        </div>
+
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="container">
+      <li><a href="./index.html" class="active">Trang chủ</a></li>
+      <li><a href="./page/promo.html">Khuyến mãi</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Layout -->
+  <div class="container main-layout">
+    <!-- Sidebar Danh mục -->
+    <aside class="sidebar">
+      <h3>DANH MỤC SẢN PHẨM</h3>
+      <ul class="menu" id="categoryList">
+        <!-- JS sẽ render nhóm danh mục từ category.js -->
+      </ul>
+    </aside>
+
+    <!-- Cột phải: lọc + sản phẩm -->
+    <div class="right-content">
+      <!-- Bộ lọc sắp xếp -->
+      <div class="filter-bar">
+        <label for="priceSort">Sắp xếp theo giá:</label>
+        <select id="priceSort">
+          <option value="">-- Chọn --</option>
+          <option value="asc">Tăng dần</option>
+          <option value="desc">Giảm dần</option>
+        </select>
+      </div>
+
+      <!-- Danh sách sản phẩm -->
+      <main class="product-content">
+        <h2>Danh sách sản phẩm</h2>
+        <div class="product-grid" id="productGrid">
+          <!-- JS sẽ render sản phẩm tại đây -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      &copy; 2025 ProD Store - By <a href="https://tuyenlt211.github.io/Portfolio-Gr13/" target="_blank">Group 13</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./js/category.js"></script>
+  <script type="module" src="./js/index.js"></script>
+</body>
+</html>

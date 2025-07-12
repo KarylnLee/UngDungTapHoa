@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý người dùng</title>
+  <link rel="stylesheet" href="/frontend/css/style.css">
+  <link rel="stylesheet" href="/frontend/css/admin.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+    th { background-color: #f2f2f2; }
+    #searchInput { padding: 6px; width: 300px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>👤 Danh sách người dùng</h2>
+    <input type="text" id="searchInput" placeholder="Tìm theo tên hoặc email..." />
+    <table id="userTable">
+      <thead><tr><th>ID</th><th>Họ tên</th><th>Email</th><th>Điện thoại</th><th>Ngày tạo</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script type="module" src="/frontend/js/admin/user-manage.js"></script>
+</body>
+</html>

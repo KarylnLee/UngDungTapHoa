@@ -1,0 +1,79 @@
+/* 📁 File: css/product-detail.css */
+
+.product-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.product-card img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.product-card .info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.product-card .info p {
+  margin: 12px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.product-card .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn-buy {
+  background-color: #f57c00;
+}
+
+.btn-buy:hover {
+  background-color: #e65100;
+}
+
+.btn-cart {
+  background-color: #008000;
+}
+
+.btn-cart:hover {
+  background-color: #005500;
+}
+
+.btn.secondary {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn.secondary:hover {
+  background-color: #aaa;
+}
